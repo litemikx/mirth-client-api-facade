@@ -3,7 +3,7 @@
   <nextMetaDataId>16</nextMetaDataId>
   <name>MIRTH_CLIENT_API_FACADE TEMP</name>
   <description></description>
-  <revision>7</revision>
+  <revision>8</revision>
   <sourceConnector version="4.3.0">
     <metaDataId>0</metaDataId>
     <name>sourceConnector</name>
@@ -61,8 +61,11 @@
         <com.mirth.connect.plugins.javascriptstep.JavaScriptStep version="4.3.0">
           <sequenceNumber>0</sequenceNumber>
           <enabled>true</enabled>
-          <script>var uri = new String(sourceMap.get(&apos;uri&apos;));
+          <script>var debug = 0;
+
+var uri = new String(sourceMap.get(&apos;uri&apos;));
 channelMap.put(&apos;uri&apos;, uri);
+
 
 var pathStr = new String(sourceMap.get(&apos;contextPath&apos;));
 channelMap.put(&apos;pathStr&apos;, pathStr);
@@ -101,7 +104,13 @@ if ((pathStrArray.indexOf(&apos;api&apos;) == 1
 	|| 
 	(pathStrArray.indexOf(&apos;api&apos;) == 1 
 	&amp;&amp; pathStrArray.indexOf(&apos;system&apos;) == 2
-	&amp;&amp; pathStrArray.indexOf(&apos;stats&apos;) == 3)) {
+	&amp;&amp; pathStrArray.indexOf(&apos;stats&apos;) == 3)
+	||
+	(pathStrArray.indexOf(&apos;api&apos;) == 1 
+	&amp;&amp; pathStrArray.indexOf(&apos;events&apos;) == 2)
+	||
+	(pathStrArray.indexOf(&apos;api&apos;) == 1 
+	&amp;&amp; pathStrArray.indexOf(&apos;users&apos;) == 2)) {
 	
 	destinationSet.removeAllExcept([&apos;GET_CHANNEL_SERVER_API&apos;]);
 
@@ -477,7 +486,7 @@ return;</undeployScript>
     <metadata>
       <enabled>false</enabled>
       <lastModified>
-        <time>1707011089490</time>
+        <time>1711462587134</time>
         <timezone>Asia/Singapore</timezone>
       </lastModified>
       <pruningSettings>
